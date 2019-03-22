@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--
+ * Onilab GoogleChartFix
+ *
+ * @category   Onilab
+ * @package    Onilab_GoogleChartFix
+ * @version    1.0.0
+ *
+ * Release with version 1.0.0
+ *
+ * @author     Onilab https://onilab.com/
+ * @copyright  Copyright (c) 2019 Onilab LLC
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Magento\Backend\Block\Dashboard\Tab\Orders" type="Onilab\GoogleChartFix\Block\Dashboard\Tab\Orders" />
+	<preference for="Magento\Backend\Block\Dashboard\Tab\Amounts" type="Onilab\GoogleChartFix\Block\Dashboard\Tab\Amounts" />
+</config>

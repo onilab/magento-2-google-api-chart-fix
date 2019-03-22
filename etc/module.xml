@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+ * Onilab GoogleChartFix
+ *
+ * @category   Onilab
+ * @package    Onilab_GoogleChartFix
+ * @version    1.0.0
+ *
+ * Release with version 1.0.0
+ *
+ * @author     Onilab https://onilab.com/
+ * @copyright  Copyright (c) 2019 Onilab LLC
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+     <module name="Onilab_GoogleChartFix" setup_version="1.0.0" active="true"/>
+</config> 

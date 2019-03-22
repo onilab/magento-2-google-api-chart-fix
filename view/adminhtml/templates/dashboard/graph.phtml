@@ -1,0 +1,67 @@
+<?php
+/**
+ * Onilab GoogleChartFix
+ *
+ * @category   Onilab
+ * @package    Onilab_GoogleChartFix
+ * @version    1.0.0
+ *
+ * Release with version 1.0.0
+ *
+ * @author     Onilab https://onilab.com/
+ * @copyright  Copyright (c) 2019 Onilab LLC
+ */
+?>
+<?php
+// @codingStandardsIgnoreFile
+
+?>
+<div class="dashboard-diagram">
+    <div class="dashboard-diagram-switcher">
+        <label for="order_<?= $block->getHtmlId() ?>_period"
+               class="label"><?= /* @escapeNotVerified */ __('Select Range:') ?></label>
+        <select name="period" id="order_<?= $block->getHtmlId() ?>_period"
+                onchange="changeDiagramsPeriod(this);" class="admin__control-select">
+            <?php foreach ($this->helper('Magento\Backend\Helper\Dashboard\Data')->getDatePeriods() as $value => $label): ?>
+                <?php if (in_array($value, ['custom'])) {
+                    continue;
+                } ?>
+                <option value="<?= /* @escapeNotVerified */ $value ?>"
+                    <?php if ($block->getRequest()->getParam('period') == $value): ?> selected="selected"<?php endif; ?>
+                    ><?= /* @escapeNotVerified */ $label ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <?php if ($block->getCount()): ?>
+    <div class="dashboard-diagram-image">
+        <?php $chartId = uniqid('onilab_googlechart_') ?>
+        <div id="<?= $chartId; ?>"></div>
+        <span style="text-align: center; display: block"><?= __('Check for updates at ') ?> <a href="https://github.com/onilab/magento-2-google-api-chart-fix/" target="_blank">Onilab's GitHub</a></span>
+        <?php
+        $chartData = $block->getChartData();
+        ?>
+        <script>
+            require([
+                'onilabGoogleCharts',
+            ], function(onilabGoogleCharts){
+                onilabGoogleCharts.drawChart('<?= $chartId; ?>', {
+                    chartName: '<?= $block->getHtmlId() ?>',
+                    period: '<?= $chartData['period']; ?>',
+                    y: <?= json_encode($chartData['y']); ?>,
+                    data: {
+                        columns: [
+                            ["date", "Time"],
+                            ["number", "<?= $block->getTitle(); ?>"]
+                        ],
+                        rows: <?= json_encode($chartData['rows']); ?>
+                    }
+                });
+            });
+        </script>
+    </div>
+    <?php else: ?>
+    <div class="dashboard-diagram-nodata">
+        <span><?= /* @escapeNotVerified */ __('No Data Found') ?></span>
+    </div>
+    <?php endif; ?>
+</div>
