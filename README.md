@@ -1,7 +1,7 @@
 Magento 1.x support:
 =====================
 
-The repo for Magento 1 version of our module is available in the new repository of the module : [https://github.com/onilab/magento-2-google-api-chart-fix/](https://github.com/onilab/magento-1-google-api-chart-fix/).
+The repo for Magento 1 version of our module is available in the new repository of the module : [https://github.com/onilab/magento-1-google-api-chart-fix/](https://github.com/onilab/magento-1-google-api-chart-fix/).
 
 About this module:
 ===================
